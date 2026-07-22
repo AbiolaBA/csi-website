@@ -1,0 +1,9 @@
+# Consumption Sovereignty Index (CSI) - Python dependencies
+# Install with:  pip install -r requirements.txt
+pandas>=2.0
+numpy>=1.24
+pyarrow>=14.0
+ecomplexity>=0.5.2
+PyYAML>=6.0
+# Optional, speeds up reading large Stata (.dta) trade files:
+# pyreadstat>=1.2

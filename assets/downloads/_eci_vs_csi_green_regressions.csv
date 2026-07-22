@@ -1,0 +1,25 @@
+sample,outcome,index,coef,p,r2,n,sig
+Full (53 countries),CO2_intensity,ECI-TRADE,0.1859,0.0,0.121,1355,***
+Full (53 countries),CO2_intensity,ECI-RESEARCH,0.0088,0.604,0.003,1355,
+Full (53 countries),CO2_intensity,ECI-TECHNOLOGY,0.0913,0.0,0.061,1355,***
+Full (53 countries),CO2_intensity,CSI,0.0938,0.0,0.044,1345,***
+Full (53 countries),Renewables_pct,ECI-TRADE,-11.5448,0.0,0.095,1278,***
+Full (53 countries),Renewables_pct,ECI-RESEARCH,-7.1673,0.0,0.035,1278,***
+Full (53 countries),Renewables_pct,ECI-TECHNOLOGY,-5.0741,0.0,0.043,1278,***
+Full (53 countries),Renewables_pct,CSI,-5.6901,0.0,0.036,1268,***
+Full (53 countries),GHG_per_capita,ECI-TRADE,2.0054,0.0,0.019,1379,***
+Full (53 countries),GHG_per_capita,ECI-RESEARCH,2.72,0.0,0.026,1379,***
+Full (53 countries),GHG_per_capita,ECI-TECHNOLOGY,1.0689,0.0,0.011,1379,***
+Full (53 countries),GHG_per_capita,CSI,1.0542,0.003,0.007,1369,***
+African (18 countries),CO2_intensity,ECI-TRADE,-0.1393,0.0,0.089,470,***
+African (18 countries),CO2_intensity,ECI-RESEARCH,-0.0074,0.681,0.006,470,
+African (18 countries),CO2_intensity,ECI-TECHNOLOGY,-0.0062,0.637,0.006,470,
+African (18 countries),CO2_intensity,CSI,-0.0681,0.0,0.042,468,***
+African (18 countries),Renewables_pct,ECI-TRADE,7.991,0.016,0.025,437,**
+African (18 countries),Renewables_pct,ECI-RESEARCH,-4.744,0.07,0.019,437,*
+African (18 countries),Renewables_pct,ECI-TECHNOLOGY,-1.6677,0.386,0.013,437,
+African (18 countries),Renewables_pct,CSI,5.3141,0.032,0.022,435,**
+African (18 countries),GHG_per_capita,ECI-TRADE,-3.1071,0.0,0.039,469,***
+African (18 countries),GHG_per_capita,ECI-RESEARCH,2.186,0.0,0.032,469,***
+African (18 countries),GHG_per_capita,ECI-TECHNOLOGY,-0.9422,0.029,0.011,469,**
+African (18 countries),GHG_per_capita,CSI,-1.1185,0.045,0.009,467,**

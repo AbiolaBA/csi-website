@@ -1,0 +1,58 @@
+# ============================================================================
+# Consumption Sovereignty Index (CSI) - pipeline configuration
+# All run parameters live here. Edit this file; do not edit the code.
+# Decisions locked in CII_Methodology_v0.2.md, Section 14.
+# ============================================================================
+
+project:
+  name: "Consumption Sovereignty Index"
+  methodology: "CSI_Methodology_v0.3.md"
+
+# --- Folders ----------------------------------------------------------------
+paths:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  output_dir: "outputs"
+
+# --- Data sources: Harvard Growth Lab, Atlas of Economic Complexity ---------
+# Downloaded from the Harvard Dataverse by cii/download.py.
+sources:
+  sitc:
+    doi: "doi:10.7910/DVN/H8SFD2"
+    classification: "SITC Rev. 2"
+    subdir: "sitc"
+  hs92:
+    doi: "doi:10.7910/DVN/T4CHWJ"
+    classification: "HS 1992"
+    subdir: "hs92"
+  bec:
+    # UN BEC Rev. 5 HS<->end-use correspondence. Placed manually in data/raw/.
+    # See data/HOW_TO_GET_THE_DATA.md.
+    file: "bec_rev5_hs_correspondence.csv"
+
+# --- Index parameters (locked, methodology v0.2 Section 14) -----------------
+index:
+  rca_threshold: 1.0                 # Decision 1
+  capability_measure: "density"      # Decision 2: density alone
+  variants: ["consumption_only"]   # all_merchandise retired: verification showed it is unsound
+  classifications: ["sitc", "hs92"]
+  headline_series: "hs92_consumption_only"   # Decision 4
+  presentation_scale: true           # Decision 5: 0-100 percentile + z-score
+  direction: "high_is_intelligent"   # Decision 6
+
+# --- Re-export / entrepot hubs (Decision 3: reported as a separate group) ----
+reexport_hubs:
+  handling: "separate"
+  iso3: ["SGP", "HKG", "NLD", "BEL", "ARE", "LUX", "MLT", "PAN"]
+
+# --- Coverage filters (Atlas-standard; tune here) ---------------------------
+filters:
+  min_population: 1000000
+  min_total_trade_usd: 1000000000
+  drop_unspecified_products: true
+
+# --- Year coverage (null end = latest year in the downloaded data vintage) --
+years:
+  sitc_start: 1962
+  hs92_start: 1995
+  end: null
