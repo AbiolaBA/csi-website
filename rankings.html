@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Country Rankings — Consumption Sovereignty Index | Consumer Intelligence Lab</title>
+<meta name="description" content="Interactive country rankings of the Consumption Sovereignty Index: 185 economies, 1995–2024, searchable and filterable by region, with regional trends and correlations.">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header"><div class="wrap bar">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 15 L8 9 L12 12 L17 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="4" r="2" fill="#fff"/></svg></span>
+    <span class="brand-name">Consumer Intelligence Lab<span>Indexes · Data · Policy</span></span>
+  </a>
+  <button class="nav-toggle" aria-label="Menu">☰</button>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="csi.html">The Index</a>
+    <a href="rankings.html">Rankings</a>
+    <a href="research.html">Research</a>
+    <a href="data.html">Data &amp; Code</a>
+    <a href="policy.html">Policy</a>
+    <a href="about.html">About</a>
+  </nav>
+</div></header>
+
+<div class="page-head"><div class="wrap">
+  <p class="kicker">Data explorer</p>
+  <h1>Country rankings</h1>
+  <p class="lead">Country-average Consumption Sovereignty Index, 1995–2024 (HS92 headline series, z-scores). Search, filter by region, and sort. Re-export hubs are scored but flagged separately in the underlying data so entrepôt trade does not distort the ranking.</p>
+</div></div>
+
+<section class="block"><div class="wrap">
+  <div class="controls" role="search">
+    <input type="search" id="q" placeholder="Search country or ISO3 code…" aria-label="Search countries">
+    <select id="region" aria-label="Filter by region">
+      <option value="">All regions</option>
+    </select>
+    <button class="chip" id="chipAfrica" aria-pressed="false">Africa only</button>
+    <span class="count-note" id="countNote"></span>
+  </div>
+
+  <div class="table-scroll">
+    <table class="data" id="rankTable">
+      <thead><tr>
+        <th data-k="rank" class="sortable num" style="text-align:left">#</th>
+        <th data-k="name" class="sortable">Country</th>
+        <th data-k="region" class="sortable">Region</th>
+        <th data-k="csi" class="sortable num">CSI (z)</th>
+        <th>Position vs world mean</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="src" style="margin-top:10px">Source: CSI pipeline v0.3 · country averages over 1995–2024 · <a href="assets/downloads/_global_country_avg.csv" download>download this table (CSV)</a></p>
+</div></section>
+
+<section class="block alt"><div class="wrap">
+  <div class="grid-2">
+    <div class="panel viz-root">
+      <h4>Regional trajectories, 1995–2024</h4>
+      <p class="sub">Mean raw CSI by World Bank region (share of the consumer basket sovereignly supplied)</p>
+      <div class="chart-box" style="height:360px"><canvas id="regionTrend" role="img" aria-label="Line chart of raw CSI by region 1995–2024. Europe and Central Asia is highest and rising; Sub-Saharan Africa and South Asia are lowest."></canvas></div>
+      <details class="tbl"><summary>View as table</summary>
+        <div class="table-scroll" style="margin-top:8px"><table class="data small" id="regionTrendTable"></table></div>
+      </details>
+    </div>
+    <div class="panel viz-root">
+      <h4>What the CSI correlates with</h4>
+      <p class="sub">Pearson r against the CSI, global panel (n = 5,158 country-years)</p>
+      <div class="chart-box" style="height:360px"><canvas id="corrChart" role="img" aria-label="Diverging bar chart of correlations with the CSI. Export diversity +0.74 strongest positive; food and agriculture import share −0.55 strongest negative."></canvas></div>
+      <p class="src"><a href="assets/downloads/_global_correlations.csv" download>download (CSV)</a></p>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:26px">
+    <div class="panel viz-root">
+      <h4>Regional averages at a glance</h4>
+      <p class="sub">Mean CSI z-score by region, 1995–2024 (positive = above the world mean)</p>
+      <div class="chart-box" style="height:300px"><canvas id="regionMeans" role="img" aria-label="Bar chart of mean CSI z-score by region. Europe and Central Asia +0.71; Sub-Saharan Africa −0.82."></canvas></div>
+    </div>
+    <div>
+      <h3>Reading the numbers</h3>
+      <p>The CSI is standardised within each year: a score of +1 means one standard deviation more consumption sovereignty than the world in that year; −1 means one below.</p>
+      <p>The African mean is <strong>−0.82</strong> against +0.71 for Europe &amp; Central Asia — a persistent gap of over 1.5 standard deviations. Yet the continent contains striking variation: South Africa (+1.14) ranks in the global top 25, with Tunisia, Morocco, Kenya and Mauritius all near or above the world mean, while conflict-affected economies dominate the global bottom.</p>
+      <p>That within-Africa variation is exactly what makes the index usable for policy targeting — it identifies which economies convert capability into sovereign consumption, and which import what they could make.</p>
+      <a class="btn btn-light" href="policy.html">Stylised facts →</a>
+    </div>
+  </div>
+</div></section>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="top">
+    <div>
+      <h4>Consumer Intelligence Lab</h4>
+      <p class="small" style="color:#b9c9dc">Indexes, open data and reproducible analysis of the consumption side of development — in service of industrial and development policy for the Global South and beyond.</p>
+    </div>
+    <div>
+      <h4>Indexes</h4>
+      <a href="csi.html">Consumption Sovereignty Index</a>
+      <a href="csi.html#ladder">Tier 2–3 (openness)</a>
+      <a href="research.html#preference">CSI-Preference</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="rankings.html">Country rankings</a>
+      <a href="data.html">Data &amp; code</a>
+      <a href="research.html">Publications</a>
+    </div>
+    <div>
+      <h4>Lab</h4>
+      <a href="about.html">About &amp; mission</a>
+      <a href="policy.html">Policy insights</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+  </div>
+  <div class="legal">
+    <span>© 2026 Consumer Intelligence Lab · Babatunde Abiola, University of Johannesburg</span>
+    <span>Data: Atlas of Economic Complexity (Harvard Growth Lab) · BACI (CEPII) · UNIDO · World Bank</span>
+  </div>
+</div></footer>
+
+<script src="assets/js/vendor/chart.umd.min.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+(function () {
+  const D = CSI_DATA;
+  const tbody = document.querySelector("#rankTable tbody");
+  const q = document.getElementById("q");
+  const regionSel = document.getElementById("region");
+  const chipAfrica = document.getElementById("chipAfrica");
+  const countNote = document.getElementById("countNote");
+
+  // populate region filter
+  Object.entries(D.regionNames).forEach(([code, name]) => {
+    const o = document.createElement("option");
+    o.value = code; o.textContent = name;
+    regionSel.appendChild(o);
+  });
+
+  let sortKey = "rank", sortDir = 1, africaOnly = false;
+  const maxAbs = Math.max(...D.rankings.map(r => Math.abs(r.csi)));
+
+  function bar(csi) {
+    const half = 50 * Math.min(1, Math.abs(csi) / maxAbs);
+    const cls = csi >= 0 ? "p" : "n";
+    const left = csi >= 0 ? 50 : 50 - half;
+    return `<span class="zbar"><span class="track"><span class="mid"></span><span class="fill ${cls}" style="left:${left}%;width:${half}%"></span></span></span>`;
+  }
+
+  function render() {
+    const term = q.value.trim().toLowerCase();
+    let rows = D.rankings.filter(r =>
+      (!term || r.name.toLowerCase().includes(term) || r.iso3.toLowerCase().includes(term)) &&
+      (!regionSel.value || r.region === regionSel.value) &&
+      (!africaOnly || r.african === 1)
+    );
+    rows = rows.slice().sort((a, b) => {
+      const va = a[sortKey], vb = b[sortKey];
+      return (typeof va === "string" ? va.localeCompare(vb) : va - vb) * sortDir;
+    });
+    tbody.innerHTML = rows.map(r => `
+      <tr>
+        <td class="num">${r.rank}</td>
+        <td><strong>${esc(r.name)}</strong> <span class="muted small">${r.iso3}</span></td>
+        <td class="small">${esc(D.regionNames[r.region] || r.region)}</td>
+        <td class="num ${r.csi >= 0 ? "pos" : "neg"}">${fmtZ(r.csi)}</td>
+        <td>${bar(r.csi)}</td>
+      </tr>`).join("");
+    countNote.textContent = `${rows.length} of ${D.rankings.length} economies`;
+  }
+
+  q.addEventListener("input", render);
+  regionSel.addEventListener("change", render);
+  chipAfrica.addEventListener("click", () => {
+    africaOnly = !africaOnly;
+    chipAfrica.classList.toggle("on", africaOnly);
+    chipAfrica.setAttribute("aria-pressed", String(africaOnly));
+    render();
+  });
+  document.querySelectorAll("#rankTable th.sortable").forEach(th => {
+    th.style.cursor = "pointer";
+    th.addEventListener("click", () => {
+      const k = th.dataset.k;
+      if (sortKey === k) sortDir *= -1; else { sortKey = k; sortDir = k === "name" || k === "region" ? 1 : 1; }
+      render();
+    });
+  });
+  render();
+
+  // region trends — fixed hue order, entity-stable
+  const regionColors = { ECA: CIL.series[0], EAP: CIL.series[1], LAC: CIL.series[2], MENA: CIL.series[3], SAS: CIL.series[4], SSA: CIL.series[5] };
+  const order = ["ECA", "EAP", "LAC", "MENA", "SAS", "SSA"];
+  cilLineChart("regionTrend", D.trendYears, order.map(k => ({
+    label: D.regionNames[k], data: D.trendRegions[k], color: regionColors[k],
+  })), { yTitle: "Raw CSI (0–1)" });
+
+  // table view of the trend (accessibility)
+  const tt = document.getElementById("regionTrendTable");
+  const yrs = D.trendYears.filter((y, i) => i % 5 === 0 || y === 2024);
+  tt.innerHTML = "<thead><tr><th>Region</th>" + yrs.map(y => `<th class="num">${y}</th>`).join("") + "</tr></thead><tbody>" +
+    order.map(k => `<tr><td>${D.regionNames[k]}</td>` + yrs.map(y => {
+      const v = D.trendRegions[k][D.trendYears.indexOf(y)];
+      return `<td class="num">${v == null ? "–" : v.toFixed(3)}</td>`;
+    }).join("") + "</tr>").join("") + "</tbody>";
+
+  // correlations
+  const corr = D.correlationsGlobal.slice().sort((a, b) => b.r_CSI - a.r_CSI);
+  cilDivergingBar("corrChart", corr.map(c => c.Variable), corr.map(c => c.r_CSI),
+    { xTitle: "Pearson r with CSI", dp: 2 });
+
+  // region means
+  const rm = order.map(k => ({ k, m: D.regionMeans[k].mean })).sort((a, b) => b.m - a.m);
+  cilDivergingBar("regionMeans", rm.map(r => D.regionNames[r.k]), rm.map(r => r.m),
+    { xTitle: "Mean CSI (z-score)", dp: 2 });
+})();
+</script>
+</body>
+</html>

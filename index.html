@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consumer Intelligence Lab — The Consumption Sovereignty Index</title>
+<meta name="description" content="The Consumer Intelligence Lab builds indexes, open data and reproducible analysis on how nations consume — starting with the Consumption Sovereignty Index (CSI), the import-side mirror of the Economic Complexity Index.">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header"><div class="wrap bar">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 15 L8 9 L12 12 L17 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="4" r="2" fill="#fff"/></svg></span>
+    <span class="brand-name">Consumer Intelligence Lab<span>Indexes · Data · Policy</span></span>
+  </a>
+  <button class="nav-toggle" aria-label="Menu">☰</button>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="csi.html">The Index</a>
+    <a href="rankings.html">Rankings</a>
+    <a href="research.html">Research</a>
+    <a href="data.html">Data &amp; Code</a>
+    <a href="policy.html">Policy</a>
+    <a href="about.html">About</a>
+  </nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <p class="kicker">The Consumption Sovereignty Index — flagship measure</p>
+  <h1>What a nation consumes is a structural lever — not only what it produces.</h1>
+  <p class="lead">The Consumer Intelligence Lab builds indexes, open data and reproducible analysis of the consumption side of development. Our flagship measure, the Consumption Sovereignty Index (CSI), reads a country's import basket and asks a simple question: does this nation supply its own consumers, or import what it could have made itself?</p>
+  <div class="btn-row">
+    <a class="btn btn-primary" href="rankings.html">Explore the rankings</a>
+    <a class="btn btn-ghost" href="csi.html">Read the methodology</a>
+  </div>
+</div></div>
+
+<div class="stat-band"><div class="wrap">
+  <div class="stat-grid">
+    <div class="stat"><div class="num">193</div><div class="lbl">economies scored, 1995–2024 (HS92 headline series; SITC back to 1962)</div></div>
+    <div class="stat"><div class="num">13,203</div><div class="lbl">country-year scores across both product classifications</div></div>
+    <div class="stat"><div class="num">+0.74</div><div class="lbl">correlation with the Economic Complexity Index — a complement, not a copy</div></div>
+    <div class="stat"><div class="num">0.975</div><div class="lbl">HS92 × SITC agreement in 2023 — the ranking is robust to the product scheme</div></div>
+  </div>
+</div></div>
+
+<section class="block"><div class="wrap">
+  <div class="grid-2">
+    <div>
+      <p class="kicker">The idea</p>
+      <h2>The import-side mirror of economic complexity</h2>
+      <p>The Economic Complexity Index reads a country's <em>export</em> basket to infer what it can produce. The CSI reads its <em>import basket of final consumer goods</em> and asks: of the things this country's households buy from abroad, how much sits within the country's own productive capability?</p>
+      <p>A high CSI means consumption is sovereign — the nation largely supplies its own consumers. A low CSI means consumption leans on foreign supply of goods the country could make itself: the macroeconomic footprint of what the consumer-behaviour literature calls <em>consumer xenocentrism</em>.</p>
+      <blockquote class="pull">The CSI is a diagnostic instrument, not a policy prescription. It measures a gap — and a gap can be closed by raising domestic quality and shifting value systems just as much as by any trade measure.</blockquote>
+      <a class="btn btn-light" href="csi.html">How the index is built →</a>
+    </div>
+    <div class="panel viz-root">
+      <h4>Consumption sovereignty, Africa vs the rest</h4>
+      <p class="sub">Mean raw CSI (share of the consumer basket sovereignly supplied), 53-economy analysis panel, 1998–2024</p>
+      <div class="chart-box" style="height:320px"><canvas id="heroTrend" role="img" aria-label="Line chart: raw CSI for African economies vs non-African economies, 1998 to 2024. The African line is persistently about 0.10 lower."></canvas></div>
+      <p class="src">Source: CSI pipeline v0.3 on Atlas of Economic Complexity data · <a href="data.html">get the data</a></p>
+    </div>
+  </div>
+</div></section>
+
+<section class="block alt"><div class="wrap">
+  <div class="section-head">
+    <p class="kicker">The index family</p>
+    <h2>One measurement ladder, four dimensions</h2>
+    <p class="muted">Each index isolates a different slice of the consumption decision. Together they climb toward the structural preference parameter α — the foreign-goods weight in the household's consumption bundle.</p>
+  </div>
+  <div class="grid-3">
+    <div class="card index-card">
+      <div class="tag-row"><span class="tag t-green">Published</span><span class="tag t-gray">Tier 1</span></div>
+      <h3>CSI — Capability</h3>
+      <p class="muted">The headline index. Penalises importing final consumer goods the country demonstrably could make — capability from the export side, dependence from the import side. 193 economies, 1962–2024.</p>
+      <a href="csi.html">Methodology v0.3 →</a>
+    </div>
+    <div class="card index-card">
+      <div class="tag-row"><span class="tag t-green">Computed</span><span class="tag t-gray">Tiers 2–3</span></div>
+      <h3>CSI — Openness</h3>
+      <p class="muted">Adds domestic production (UNIDO INDSTAT) to measure the true foreign expenditure share of consumption, then strips relative prices under a CES demand system. 107 economies with full tier coverage.</p>
+      <a href="csi.html#ladder">The measurement ladder →</a>
+    </div>
+    <div class="card index-card">
+      <div class="tag-row"><span class="tag t-green">Computed</span><span class="tag t-gray">Move A</span></div>
+      <h3>CSI — Preference</h3>
+      <p class="muted">Within-good unit-value premia from BACI HS6 microdata: does a country pay above the world price for foreign varieties? 6,453 country-years, 232 importers, 1995–2023.</p>
+      <a href="research.html#preference">First results →</a>
+    </div>
+  </div>
+  <div style="margin-top:22px" class="grid-3">
+    <div class="card index-card coming">
+      <div class="tag-row"><span class="tag t-orange">In development</span></div>
+      <h3>Peer-adjusted CSI</h3>
+      <p class="muted">The CSI residualised on income and population — a country scoring below its own income peers is exhibiting the value-system signal specifically, not underdevelopment.</p>
+    </div>
+    <div class="card index-card coming">
+      <div class="tag-row"><span class="tag t-orange">Scoped</span></div>
+      <h3>Income-leakage index</h3>
+      <p class="muted">From gross trade composition to cents-per-consumption-dollar funding domestic labour and value added — the consumption multiplier made measurable.</p>
+    </div>
+    <div class="card index-card coming">
+      <div class="tag-row"><span class="tag t-orange">Scoped</span></div>
+      <h3>Institutional layer</h3>
+      <p class="muted">Linking consumption sovereignty to institutions and colonial legacy (WGI, COLDAT) in the Acemoglu–Robinson tradition — explaining <em>why</em> the gap exists.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="grid-2">
+    <div class="panel viz-root">
+      <h4>Who supplies their own consumers?</h4>
+      <p class="sub">Country-average CSI (z-score), top and bottom 12 of 185 ranked economies, 1995–2024</p>
+      <div class="chart-box" style="height:440px"><canvas id="homeRank" role="img" aria-label="Diverging bar chart of top 12 and bottom 12 country-average CSI scores. Hungary leads near +2.0; Somalia is lowest among sovereign states near −2.1."></canvas></div>
+      <p class="src">Full interactive table on the <a href="rankings.html">rankings page</a></p>
+    </div>
+    <div>
+      <p class="kicker">Findings</p>
+      <h2>Not a wealth ranking</h2>
+      <p>The top of the CSI ranking — Hungary, Denmark, Germany, Czechia, Spain — is dominated by diversified economies that supply their own consumers. But the index is <strong>not</strong> income in disguise: its correlation with GDP per capita is just +0.02 on the analysis panel.</p>
+      <p>Türkiye, Mexico, Thailand and Malaysia — middle-income manufacturers — rank above Japan and the United States, which are rich but import much of what their consumers buy. And the index pinpoints <em>which goods</em> drive each country's gap: for Nigeria, imported sugar, frozen fish, footwear — and palm oil, a product Nigeria once led the world in exporting.</p>
+      <p>At the ERSA Trade Policy Conference 2026 we showed the CSI is statistically associated with all three green-growth outcomes on the African subsample where two of three ECI variants fall silent — evidence that for African economies, the green-growth signal lives on the consumption side.</p>
+      <a class="btn btn-light" href="policy.html">Stylised facts &amp; policy →</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="block alt"><div class="wrap">
+  <div class="section-head">
+    <p class="kicker">Latest research</p>
+    <h2>Publications &amp; working papers</h2>
+  </div>
+  <div class="pub">
+    <div class="date">Jun 2026</div>
+    <div>
+      <h3><a href="research.html#ersa">Is the CSI a Better Fit for African Green Growth than the ECI?</a></h3>
+      <p>Poster and lightning talk, ERSA Trade Policy Conference, Stellenbosch. The CSI is significant for all three green-growth outcomes in both the full 53-country panel and the 18-country African subsample — 6 of 6 — where ECI-TECHNOLOGY and ECI-RESEARCH lose power.</p>
+      <p class="meta">Conference presentation · with causal supplement (System GMM, Hansen threshold)</p>
+    </div>
+  </div>
+  <div class="pub">
+    <div class="date">Jun 2026</div>
+    <div>
+      <h3><a href="research.html#preference">CSI-Preference: the within-good price-premium dimension</a></h3>
+      <p>First results from BACI unit values overturn the simple xenocentrism story: premium-paying tracks income, not status — but the status signal survives, concentrated in culture-specific categories. Nigeria pays 56% above the world average for exactly one chapter: wigs and human hair.</p>
+      <p class="meta">Working paper · 6,453 country-years</p>
+    </div>
+  </div>
+  <div class="pub">
+    <div class="date">May 2026</div>
+    <div>
+      <h3><a href="research.html#stylised">Global Stylised Facts of Consumption Sovereignty</a></h3>
+      <p>The first global portrait of the CSI: 193 economies, 5,158 country-years. Europe &amp; Central Asia leads every year; Sub-Saharan Africa trails by a full standard deviation; the strongest single correlate of low sovereignty is food-import dependence (r = −0.55).</p>
+      <p class="meta">Lab report · full data release</p>
+    </div>
+  </div>
+  <p style="margin-top:18px"><a class="btn btn-light" href="research.html">All publications →</a></p>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="grid-2">
+    <div>
+      <p class="kicker">Open science</p>
+      <h2>Every number on this site is reproducible</h2>
+      <p>The entire pipeline — from raw Atlas trade files to the ranking you can explore here — is a documented Python package driven by a single config file. A full refresh is one command:</p>
+      <pre class="code"><span class="c"># drop a new Atlas data vintage into data/raw/, then</span>
+python -m cii.run</pre>
+      <p>Data vintages are recorded in a manifest; every parameter lives in <code class="inline">config.yaml</code>; the code is never edited to re-run. Download the package, the panels and the rankings from the data page.</p>
+      <a class="btn btn-primary" href="data.html">Data &amp; code →</a>
+    </div>
+    <div>
+      <p class="kicker">For policy makers</p>
+      <h2>A diagnostic for industrialisation strategy</h2>
+      <p>For the Global South, the CSI turns an abstract debate about industrial policy into a concrete product list: the specific consumer goods a country buys abroad but has the demonstrated capability to make. That list is a targeting tool — for quality upgrading, for value-chain investment, and for the demand-side campaigns that keep income, and jobs, at home.</p>
+      <p>The lab's framing is deliberate: this is not import-substitution nostalgia. The gap can close through better domestic goods and changed value systems — the consumer stays sovereign throughout.</p>
+      <a class="btn btn-light" href="policy.html">Policy insights →</a>
+    </div>
+  </div>
+</div></section>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="top">
+    <div>
+      <h4>Consumer Intelligence Lab</h4>
+      <p class="small" style="color:#b9c9dc">Indexes, open data and reproducible analysis of the consumption side of development — in service of industrial and development policy for the Global South and beyond.</p>
+    </div>
+    <div>
+      <h4>Indexes</h4>
+      <a href="csi.html">Consumption Sovereignty Index</a>
+      <a href="csi.html#ladder">Tier 2–3 (openness)</a>
+      <a href="research.html#preference">CSI-Preference</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="rankings.html">Country rankings</a>
+      <a href="data.html">Data &amp; code</a>
+      <a href="research.html">Publications</a>
+    </div>
+    <div>
+      <h4>Lab</h4>
+      <a href="about.html">About &amp; mission</a>
+      <a href="policy.html">Policy insights</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+  </div>
+  <div class="legal">
+    <span>© 2026 Consumer Intelligence Lab · Babatunde Abiola, University of Johannesburg</span>
+    <span>Data: Atlas of Economic Complexity (Harvard Growth Lab) · BACI (CEPII) · UNIDO · World Bank</span>
+  </div>
+</div></footer>
+
+<script src="assets/js/vendor/chart.umd.min.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+(function () {
+  const D = CSI_DATA;
+  cilLineChart("heroTrend", D.analysisYears, [
+    { label: "African economies (18)", data: D.trendAfrica, color: CIL.series[1] },
+    { label: "Non-African economies (35)", data: D.trendNonAfrica, color: CIL.series[0] },
+  ], { yTitle: "Raw CSI (0–1, high = sovereign)" });
+
+  const top = D.rankings.slice(0, 12);
+  const bottom = D.rankings.slice(-12);
+  const rows = top.concat(bottom);
+  cilDivergingBar("homeRank", rows.map(r => r.name), rows.map(r => r.csi),
+    { xTitle: "Country-average CSI (z-score)", dp: 2 });
+})();
+</script>
+</body>
+</html>

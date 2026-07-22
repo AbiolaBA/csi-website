@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research &amp; Publications | Consumer Intelligence Lab</title>
+<meta name="description" content="Methodology papers, working papers, conference presentations and critical reviews from the Consumer Intelligence Lab's Consumption Sovereignty Index programme.">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header"><div class="wrap bar">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 15 L8 9 L12 12 L17 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="4" r="2" fill="#fff"/></svg></span>
+    <span class="brand-name">Consumer Intelligence Lab<span>Indexes · Data · Policy</span></span>
+  </a>
+  <button class="nav-toggle" aria-label="Menu">☰</button>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="csi.html">The Index</a>
+    <a href="rankings.html">Rankings</a>
+    <a href="research.html">Research</a>
+    <a href="data.html">Data &amp; Code</a>
+    <a href="policy.html">Policy</a>
+    <a href="about.html">About</a>
+  </nav>
+</div></header>
+
+<div class="page-head"><div class="wrap">
+  <p class="kicker">Publications repository</p>
+  <h1>Research &amp; publications</h1>
+  <p class="lead">Everything the lab publishes — methodology specifications, working papers, conference material and our own critical reviews — with the data and code to reproduce it. Documents are versioned; superseded versions remain available for the record.</p>
+</div></div>
+
+<section class="block"><div class="wrap">
+
+  <h2 style="margin-bottom:6px">2026</h2>
+
+  <div class="pub" id="ersa">
+    <div class="date">25 Jun 2026</div>
+    <div>
+      <div class="tag-row"><span class="tag t-green">Conference</span><span class="tag">Green growth</span></div>
+      <h3>Is the CSI a Better Fit for African Green Growth than the ECI?</h3>
+      <p class="meta">B. Abiola · Poster + lightning talk, ERSA Trade Policy Conference, Stellenbosch</p>
+      <p>Tests the CSI against three ECI variants (Trade, Technology, Research) on three green-growth outcomes — CO₂ intensity of GDP, renewable-energy share, GHG per capita — over a 53-country panel (1998–2024) and its 18-country African subsample. The CSI is significant for all three outcomes in both samples (6/6); ECI-TECHNOLOGY manages 2/3 and ECI-RESEARCH 1/3 on the African subsample. The "African anomaly" lives almost entirely in the technology and research variants — exactly the ones the green-growth literature leans on.</p>
+      <figure class="shot" style="max-width:560px;margin-top:12px">
+        <img src="assets/img/poster_chart1_heatmap.png" alt="Significance heatmap: CSI and ECI-TRADE significant in six of six sample-outcome cells; ECI-TECHNOLOGY and ECI-RESEARCH lose significance on the African subsample." loading="lazy">
+        <figcaption>Statistical significance by index and outcome, full panel vs African subsample.</figcaption>
+      </figure>
+      <p class="meta" style="margin-top:10px">Materials: poster, talk script, regression tables · <a href="assets/downloads/_eci_vs_csi_green_regressions.csv" download>regressions (CSV)</a></p>
+    </div>
+  </div>
+
+  <div class="pub" id="causal">
+    <div class="date">Jun 2026</div>
+    <div>
+      <div class="tag-row"><span class="tag t-orange">Supplement</span><span class="tag">Econometrics</span></div>
+      <h3>CSI and African Green Growth — Causal Analysis Supplement</h3>
+      <p class="meta">B. Abiola · Companion to the ERSA poster</p>
+      <p>Because the poster's associations are correlational, this supplement reports two stronger specifications and presents them in full — including where they find nothing. Blundell–Bond System GMM finds no coefficient surviving conventional significance once dynamics and endogeneity are addressed (unsurprising: ~92% of CSI variation is between countries, leaving GMM little within-variation to work with). The Hansen (1999) threshold regression, which exploits the full cross-country variation, finds strong regime non-linearities in all twelve specifications (bootstrap p &lt; 0.01) — including an African renewables regime shift above a CSI threshold of −0.625.</p>
+      <p class="meta">Deliberately published with null results intact · <a href="assets/downloads/gmm_results.csv" download>GMM (CSV)</a> · <a href="assets/downloads/threshold_results.csv" download>thresholds (CSV)</a></p>
+    </div>
+  </div>
+
+  <div class="pub" id="preference">
+    <div class="date">4 Jun 2026</div>
+    <div>
+      <div class="tag-row"><span class="tag">Working paper</span><span class="tag">New index</span></div>
+      <h3>CSI-Preference (Move A): the within-good price-premium dimension</h3>
+      <p class="meta">B. Abiola · First results, 6,453 country-years, 232 importers, 1995–2023</p>
+      <p>Computed from BACI HS6 unit values: each importer's unit value per consumer-good code compared against the world-average export unit value, aggregated with import weights. The result overturns the simple xenocentrism story — African economies pay 7% <em>below</em> world average while non-African economies pay 13% above; premium-paying tracks income, not status. But disaggregation revives the thesis in sharper form: Nigeria imports the cheap variety in nearly every chapter, yet pays <strong>+56% above the world average for wigs and human hair</strong> — a known cultural-status category. Xenocentric premia exist, but they are narrow, category-specific, and invisible in aggregates.</p>
+      <p class="meta"><a href="assets/downloads/csi_preference_country_avg.csv" download>country averages (CSV)</a></p>
+    </div>
+  </div>
+
+  <div class="pub" id="critique">
+    <div class="date">4 Jun 2026</div>
+    <div>
+      <div class="tag-row"><span class="tag t-orange">Critical review</span></div>
+      <h3>The CSI: A Critical Review and Roadmap</h3>
+      <p class="meta">Lab document · published in full</p>
+      <p>The lab's own strongest critique of its flagship index. Finds that the CSI as built measures capability–import mismatch and consumption openness — two useful constructs, but neither is yet the cultural preference α the original thesis targeted; that the Tier 1 ↔ Tier 2/3 correlation of +0.06 is itself the diagnosis; and that the CES price inversion is currently symbolic rather than identifying. Lays out, in order of leverage, the additions that would close the gap: the peer-adjusted CSI, category-level preference measurement, an income-leakage measure, and the institutional layer.</p>
+    </div>
+  </div>
+
+  <div class="pub" id="method4">
+    <div class="date">4 Jun 2026</div>
+    <div>
+      <div class="tag-row"><span class="tag t-green">Methodology</span><span class="tag t-gray">v0.4</span></div>
+      <h3>CSI Methodology v0.4 — Tiers 2 and 3</h3>
+      <p class="meta">Specification · apparent consumption, prices and structural α</p>
+      <p>Specifies the two further passes on the measurement ladder: the Tier-2 foreign expenditure share from UNIDO INDSTAT production data via an HS↔ISIC concordance, and the Tier-3 price-adjusted structural α under an assumed elasticity of substitution. Includes the honest caveats on gross-output vs value-added and on rebased price indices.</p>
+    </div>
+  </div>
+
+  <div class="pub" id="stylised">
+    <div class="date">May 2026</div>
+    <div>
+      <div class="tag-row"><span class="tag">Lab report</span><span class="tag">Data release</span></div>
+      <h3>Global Stylised Facts of Consumption Sovereignty</h3>
+      <p class="meta">193 economies · 5,158 country-years · 1995–2024</p>
+      <p>The first global portrait of the index: regional trajectories (Europe &amp; Central Asia leading and rising; Sub-Saharan Africa persistently ~1.5 SD below), the Africa–rest gap, top and bottom rankings, and the correlation structure — export diversity (+0.74) and complexity (+0.71) strongest positive, food-import dependence (−0.55) strongest negative. All figures reproducible from the released panel.</p>
+      <figure class="shot" style="max-width:560px;margin-top:12px">
+        <img src="assets/img/g1_trend_region.png" alt="Regional CSI trends 1995 to 2024 showing Europe and Central Asia highest and Sub-Saharan Africa and South Asia lowest." loading="lazy">
+        <figcaption>Regional trajectories of the raw CSI, 1995–2024.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="pub" id="method3">
+    <div class="date">21 May 2026</div>
+    <div>
+      <div class="tag-row"><span class="tag t-green">Methodology</span><span class="tag t-gray">v0.3 — canonical</span></div>
+      <h3>CSI Methodology v0.3 — the canonical Tier-1 specification</h3>
+      <p class="meta">Specification · pipeline built, run and verified</p>
+      <p>The full specification of the headline index: CES microfoundation, PCI-aware capability, the consumption-goods restriction, the five-step construction, verification results (including the honest account of how v0.1–0.2 failed and why), limitations, and the locked methodological decisions. Includes the in-project BEC-style end-use classification, published in full for review.</p>
+      <p class="meta">Supersedes v0.1–v0.2 (retained for the record) · <a href="csi.html">read the methodology online</a></p>
+    </div>
+  </div>
+
+  <div class="pub">
+    <div class="date">Feb 2026</div>
+    <div>
+      <div class="tag-row"><span class="tag t-gray">Proposal</span></div>
+      <h3>Proposal for a Consumer Intelligence Index</h3>
+      <p class="meta">Founding document</p>
+      <p>The original project proposal: reject Say's Law, assert consumer sovereignty, diagnose consumer xenocentrism as an economic force, and measure its footprint. The project has since been renamed and substantially rebuilt — but the founding questions are unchanged.</p>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:34px">
+    <p><strong>Reproducibility standard.</strong> Every empirical claim in these documents traces to a released dataset and a released pipeline. If you cannot reproduce a number, that is a bug in our publication — <a href="about.html#contact">report it</a>.</p>
+  </div>
+</div></section>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="top">
+    <div>
+      <h4>Consumer Intelligence Lab</h4>
+      <p class="small" style="color:#b9c9dc">Indexes, open data and reproducible analysis of the consumption side of development — in service of industrial and development policy for the Global South and beyond.</p>
+    </div>
+    <div>
+      <h4>Indexes</h4>
+      <a href="csi.html">Consumption Sovereignty Index</a>
+      <a href="csi.html#ladder">Tier 2–3 (openness)</a>
+      <a href="research.html#preference">CSI-Preference</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="rankings.html">Country rankings</a>
+      <a href="data.html">Data &amp; code</a>
+      <a href="research.html">Publications</a>
+    </div>
+    <div>
+      <h4>Lab</h4>
+      <a href="about.html">About &amp; mission</a>
+      <a href="policy.html">Policy insights</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+  </div>
+  <div class="legal">
+    <span>© 2026 Consumer Intelligence Lab · Babatunde Abiola, University of Johannesburg</span>
+    <span>Data: Atlas of Economic Complexity (Harvard Growth Lab) · BACI (CEPII) · UNIDO · World Bank</span>
+  </div>
+</div></footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

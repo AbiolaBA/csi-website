@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data &amp; Code — Reproducibility | Consumer Intelligence Lab</title>
+<meta name="description" content="Download the Consumption Sovereignty Index datasets and the open Python pipeline that reproduces every number the lab publishes.">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header"><div class="wrap bar">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 15 L8 9 L12 12 L17 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="4" r="2" fill="#fff"/></svg></span>
+    <span class="brand-name">Consumer Intelligence Lab<span>Indexes · Data · Policy</span></span>
+  </a>
+  <button class="nav-toggle" aria-label="Menu">☰</button>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="csi.html">The Index</a>
+    <a href="rankings.html">Rankings</a>
+    <a href="research.html">Research</a>
+    <a href="data.html">Data &amp; Code</a>
+    <a href="policy.html">Policy</a>
+    <a href="about.html">About</a>
+  </nav>
+</div></header>
+
+<div class="page-head"><div class="wrap">
+  <p class="kicker">Open data · open code</p>
+  <h1>Data &amp; code</h1>
+  <p class="lead">Every number the lab publishes is reproducible from a released dataset and a released pipeline. Download the rankings and result tables directly; the full panels ship with the pipeline, which rebuilds them from public sources with one command.</p>
+</div></div>
+
+<section class="block"><div class="wrap">
+  <div class="grid-2">
+    <div>
+      <h2>Result datasets</h2>
+      <p class="muted">CSV, ready for analysis. Country codes are ISO3; the CSI is a within-year z-score unless stated.</p>
+
+      <div class="dl"><div class="ico">CSV</div><div>
+        <h4>Country rankings — global averages</h4>
+        <p>185 economies · country-average CSI, region, Africa flag · 1995–2024</p>
+      </div><div class="act"><a class="btn btn-light" href="assets/downloads/_global_country_avg.csv" download>Download</a></div></div>
+
+      <div class="dl"><div class="ico">CSV</div><div>
+        <h4>Correlation structure</h4>
+        <p>Pearson r of the CSI against 13 trade &amp; complexity variables (n = 5,158)</p>
+      </div><div class="act"><a class="btn btn-light" href="assets/downloads/_global_correlations.csv" download>Download</a></div></div>
+
+      <div class="dl"><div class="ico">CSV</div><div>
+        <h4>Tier comparison — T1 vs T2 vs T3</h4>
+        <p>107 economies with full measurement-ladder coverage, plus the T3-vs-T1 shift</p>
+      </div><div class="act"><a class="btn btn-light" href="assets/downloads/tier_comparison_country_avg.csv" download>Download</a></div></div>
+
+      <div class="dl"><div class="ico">CSV</div><div>
+        <h4>CSI-Preference — country averages</h4>
+        <p>Unit-value premia and CSI-Preference scores by country, 1995–2023</p>
+      </div><div class="act"><a class="btn btn-light" href="assets/downloads/csi_preference_country_avg.csv" download>Download</a></div></div>
+
+      <div class="dl"><div class="ico">CSV</div><div>
+        <h4>Green-growth regressions</h4>
+        <p>Bivariate coefficients (ERSA), System GMM and Hansen threshold results</p>
+      </div><div class="act">
+        <a class="btn btn-light" href="assets/downloads/_eci_vs_csi_green_regressions.csv" download>OLS</a>
+        <a class="btn btn-light" href="assets/downloads/gmm_results.csv" download>GMM</a>
+        <a class="btn btn-light" href="assets/downloads/threshold_results.csv" download>Thresholds</a>
+      </div></div>
+
+      <div class="callout">
+        <p><strong>Full panels.</strong> The complete country-year panels (Tier 1: 13,203 scores across HS92 and SITC; Tiers 2–3; the 718,900-row preference panel) and product-level diagnostics are too large for this site — they are regenerated exactly by the pipeline below, or available from the lab on request.</p>
+      </div>
+    </div>
+
+    <div>
+      <h2>The pipeline</h2>
+      <p class="muted">A documented Python package. Public data in, index out — deterministically.</p>
+
+      <div class="dl"><div class="ico">ZIP</div><div>
+        <h4>cii — the CSI Python package</h4>
+        <p>All pipeline modules + <code class="inline">config.yaml</code> + <code class="inline">requirements.txt</code></p>
+      </div><div class="act"><a class="btn btn-primary" href="assets/downloads/cii_package.zip" download>Download</a></div></div>
+
+      <pre class="code"><span class="c"># 1. install</span>
+pip install -r requirements.txt
+
+<span class="c"># 2. fetch the Atlas data vintage (recorded in a manifest)</span>
+python -m cii.download
+
+<span class="c"># 3. build everything — panels, rankings, diagnostics</span>
+python -m cii.run</pre>
+
+      <div class="table-scroll"><table class="data">
+        <thead><tr><th>Module</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><code class="inline">download.py</code></td><td>Fetch Atlas data from the Harvard Dataverse; record the vintage in <code class="inline">manifest.json</code></td></tr>
+          <tr><td><code class="inline">clean.py</code></td><td>Load + coverage filters (DuckDB, out-of-core)</td></tr>
+          <tr><td><code class="inline">capability.py</code></td><td>Step 1 — density, simplicity, cap</td></tr>
+          <tr><td><code class="inline">bec.py</code></td><td>End-use classification (final consumption goods)</td></tr>
+          <tr><td><code class="inline">dependence.py</code></td><td>Step 3 — net import dependence, basket weights</td></tr>
+          <tr><td><code class="inline">index.py</code></td><td>Steps 4–5 — gap, CCG, CSI + product diagnostics</td></tr>
+          <tr><td><code class="inline">tier2.py</code> / <code class="inline">tier3.py</code></td><td>Apparent consumption; price-adjusted structural α</td></tr>
+          <tr><td><code class="inline">preference.py</code></td><td>CSI-Preference from BACI unit values</td></tr>
+          <tr><td><code class="inline">run.py</code></td><td>Orchestrates the full pipeline from <code class="inline">config.yaml</code></td></tr>
+        </tbody>
+      </table></div>
+
+      <h3 style="margin-top:26px">The heart of the index, in code</h3>
+      <pre class="code"><span class="c"># capability.py — Step 1 (v0.3, complexity-aware)</span>
+df[<span class="s">"density"</span>] = (1.0 - df[<span class="s">"distance"</span>]).clip(0.0, 1.0)
+pp[<span class="s">"simplicity"</span>] = 1.0 - pp.groupby(<span class="s">"year"</span>)[<span class="s">"pci"</span>].rank(pct=<span class="k">True</span>)
+df[<span class="s">"cap"</span>] = df[[<span class="s">"density"</span>, <span class="s">"simplicity"</span>]].max(axis=1)
+
+<span class="c"># index.py — Steps 4–5</span>
+df[<span class="s">"contrib"</span>] = df[<span class="s">"w"</span>] * df[<span class="s">"cap"</span>] * df[<span class="s">"dep"</span>]   <span class="c"># w · g</span>
+panel[<span class="s">"CSI_raw"</span>] = 1.0 - panel[<span class="s">"CCG"</span>]
+panel[<span class="s">"CSI"</span>] = (panel[<span class="s">"CSI_raw"</span>] - grp.transform(<span class="s">"mean"</span>)) / grp.transform(<span class="s">"std"</span>)</pre>
+    </div>
+  </div>
+</div></section>
+
+<section class="block alt"><div class="wrap">
+  <div class="section-head">
+    <p class="kicker">Provenance</p>
+    <h2>Data sources</h2>
+    <p class="muted">The lab computes on published, public data only — and records the exact vintage of every input.</p>
+  </div>
+  <div class="grid-3">
+    <div class="card"><h3>Atlas of Economic Complexity</h3><p class="muted small">Harvard Growth Lab, via Harvard Dataverse. Country-product-year trade with published distance, RCA and PCI. HS92 (1995–) and SITC Rev.2 (1962–). The Tier-1 backbone.</p></div>
+    <div class="card"><h3>BACI</h3><p class="muted small">CEPII's harmonised bilateral trade at HS6, with quantities — the unit-value source behind CSI-Preference.</p></div>
+    <div class="card"><h3>UNIDO INDSTAT</h3><p class="muted small">Industrial production by ISIC industry — the domestic-production input to Tier 2's apparent-consumption estimator.</p></div>
+    <div class="card"><h3>World Development Indicators</h3><p class="muted small">Income, population, manufacturing, governance-adjacent controls; green-growth outcome variables.</p></div>
+    <div class="card"><h3>UN BEC Rev.5 (logic)</h3><p class="muted small">The end-use classification framework guiding the in-project consumption-goods set — published in full for review.</p></div>
+    <div class="card"><h3>Concordances</h3><p class="muted small">HS92↔ISIC Rev.3 and HS↔SITC concordances used to place trade and production on a common axis.</p></div>
+  </div>
+  <div class="callout" style="margin-top:28px">
+    <p><strong>Citing the index.</strong> Abiola, B. (2026). <em>The Consumption Sovereignty Index: Methodology v0.3.</em> Consumer Intelligence Lab, University of Johannesburg. Please also cite the Atlas of Economic Complexity when using Tier-1 scores.</p>
+  </div>
+</div></section>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="top">
+    <div>
+      <h4>Consumer Intelligence Lab</h4>
+      <p class="small" style="color:#b9c9dc">Indexes, open data and reproducible analysis of the consumption side of development — in service of industrial and development policy for the Global South and beyond.</p>
+    </div>
+    <div>
+      <h4>Indexes</h4>
+      <a href="csi.html">Consumption Sovereignty Index</a>
+      <a href="csi.html#ladder">Tier 2–3 (openness)</a>
+      <a href="research.html#preference">CSI-Preference</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="rankings.html">Country rankings</a>
+      <a href="data.html">Data &amp; code</a>
+      <a href="research.html">Publications</a>
+    </div>
+    <div>
+      <h4>Lab</h4>
+      <a href="about.html">About &amp; mission</a>
+      <a href="policy.html">Policy insights</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+  </div>
+  <div class="legal">
+    <span>© 2026 Consumer Intelligence Lab · Babatunde Abiola, University of Johannesburg</span>
+    <span>Data: Atlas of Economic Complexity (Harvard Growth Lab) · BACI (CEPII) · UNIDO · World Bank</span>
+  </div>
+</div></footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Consumption Sovereignty Index — Methodology | Consumer Intelligence Lab</title>
+<meta name="description" content="Full methodology of the Consumption Sovereignty Index (CSI): CES microfoundation, capability–consumption gap, the three-tier measurement ladder, verification and limitations.">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header"><div class="wrap bar">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 15 L8 9 L12 12 L17 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="4" r="2" fill="#fff"/></svg></span>
+    <span class="brand-name">Consumer Intelligence Lab<span>Indexes · Data · Policy</span></span>
+  </a>
+  <button class="nav-toggle" aria-label="Menu">☰</button>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="csi.html">The Index</a>
+    <a href="rankings.html">Rankings</a>
+    <a href="research.html">Research</a>
+    <a href="data.html">Data &amp; Code</a>
+    <a href="policy.html">Policy</a>
+    <a href="about.html">About</a>
+  </nav>
+</div></header>
+
+<div class="page-head"><div class="wrap">
+  <p class="kicker">Methodology · v0.3 (Tier 1) + v0.4 (Tiers 2–3)</p>
+  <h1>The Consumption Sovereignty Index</h1>
+  <p class="lead">For each country and each year, the CSI measures how far a nation's consumption is supplied by its own productive economy, rather than by imports of goods it could have produced itself.</p>
+</div></div>
+
+<section class="block"><div class="wrap-narrow">
+  <h2>Conceptual foundation</h2>
+  <p>Four ideas underpin the index.</p>
+  <p><strong>Consumer sovereignty.</strong> In a market economy the consumer is the final authority — consumers "hire and fire" producers through what they choose to buy. If the consumer is sovereign, a country's aggregate consumption pattern is a <em>decision</em>, and decisions can be well or poorly aligned with the nation's long-run economic interest.</p>
+  <p><strong>Consumer xenocentrism.</strong> The documented tendency, strongest in many developing economies, to prefer foreign goods <em>because</em> they are foreign — foreign origin functioning as a status signal. The CSI is not an attitude scale; it measures the economic footprint that value systems leave in trade data.</p>
+  <p><strong>The CES microfoundation.</strong> Household consumption is a CES bundle of home and foreign goods (the Galí–Monacelli small-open-economy framework). The cost-minimising allocation implies that the observed foreign expenditure share is</p>
+  <div class="formula">s_F = α · (P_F / P)^(1 − η)</div>
+  <p>The observed foreign share confounds two distinct things: the structural preference <code class="inline">α</code>, and relative prices. A country can buy heavily foreign because foreign goods are cheaper or it genuinely cannot make them — or because of a cultural value system. The CSI is, formally, an estimate of <strong>(1 − α)</strong>: the foreign-goods preference stripped of the part explained by prices and by genuine capability.</p>
+  <p><strong>The capability–consumption gap.</strong> Exports reveal capability — a country cannot competitively export what it cannot competitively make. Imports reveal dependence. The CSI combines the two, and the index is the gap between them.</p>
+
+  <div class="callout">
+    <p><strong>On the name.</strong> "Sovereignty" ties the index to <em>consumer sovereignty</em> — the idea that the consumer is the final authority in the economy — and relocates the measure from the person to the pattern. A country scores low because of its economic structure, never because its citizens are "less intelligent."</p>
+  </div>
+</div></section>
+
+<section class="block alt"><div class="wrap-narrow">
+  <h2>The method, step by step</h2>
+  <p class="muted">Computed independently for each year, on Harvard Growth Lab Atlas country-product-year data at the 4-digit level (HS 1992 from 1995; SITC Rev. 2 from 1962).</p>
+
+  <div class="step"><div class="n">1</div><div>
+    <h3>Capability — PCI-aware</h3>
+    <p>Could this country make product <em>p</em>? Capability is the maximum of two signals: product-space <em>density</em> (closeness of <em>p</em> to what the country already exports) and <em>simplicity</em> (one minus the percentile rank of product complexity).</p>
+    <div class="formula">density_cp   = 1 − distance_cp
+simplicity_p = 1 − percentile_rank(PCI_p)
+cap_cp       = max(density_cp, simplicity_p)</div>
+    <p class="muted small">The <code class="inline">max</code> is what makes the index work: a basic consumer good — furniture, processed food, simple apparel — is within anyone's capability, while advanced electronics and pharmaceuticals still require revealed proximity.</p>
+  </div></div>
+
+  <div class="step"><div class="n">2</div><div>
+    <h3>Restrict to final consumption goods</h3>
+    <p>Only final consumption goods are kept — about 370 of 1,242 HS headings (roughly 27–28% of world merchandise import value), assigned by a transparent, rule-based end-use classification following UN BEC Rev.5 logic, with chapter-level defaults and heading-level overrides. The full classification is published for review.</p>
+  </div></div>
+
+  <div class="step"><div class="n">3</div><div>
+    <h3>Import dependence and basket weights</h3>
+    <div class="formula">dep_cp = max(0, (m_cp − x_cp) / (m_cp + x_cp))
+w_cp   = m_cp / Σ_P m_cp′</div>
+    <p class="muted small">The net-import ratio is 0 under ordinary two-way trade and approaches 1 when the country only imports the product. Weights are shares of the consumption-good import bill.</p>
+  </div></div>
+
+  <div class="step"><div class="n">4</div><div>
+    <h3>The capability–consumption gap</h3>
+    <div class="formula">g_cp  = cap_cp · dep_cp
+CCG_c = Σ_P w_cp · g_cp        ∈ [0, 1]</div>
+    <p class="muted small">High when a country spends its consumer-import budget on goods it could make and genuinely depends on imports for. CCG is the Tier-1 estimate of the CES preference α.</p>
+  </div></div>
+
+  <div class="step"><div class="n">5</div><div>
+    <h3>The index</h3>
+    <div class="formula">CSI_raw = 1 − CCG                    high = sovereign
+CSI     = within-year z-score        primary statistic
+CSI_100 = within-year percentile     0–100 presentation scale</div>
+  </div></div>
+</div></section>
+
+<section class="block" id="ladder"><div class="wrap-narrow">
+  <h2>The measurement ladder</h2>
+  <p>The CSI targets the CES preference α. How completely it can be isolated depends on the data brought to bear:</p>
+  <div class="ladder">
+    <div class="rung live"><div class="tier">Tier 1</div><div class="body">
+      <p><strong>Trade data only — the headline CSI.</strong> Adjusts for capability but not relative prices. Immediately available for 193 economies back to 1962.</p>
+    </div></div>
+    <div class="rung"><div class="tier">Tier 2</div><div class="body">
+      <p><strong>+ domestic production.</strong> With UNIDO INDSTAT industrial production, the true foreign expenditure share s_F = imports / apparent consumption is measured directly, industry by industry, via an HS↔ISIC concordance.</p>
+    </div></div>
+    <div class="rung"><div class="tier">Tier 3</div><div class="body">
+      <p><strong>+ relative prices.</strong> With price indices and an assumed elasticity η, the structural α is backed out of s_F by removing the price effect — the fully CES-consistent measure.</p>
+    </div></div>
+  </div>
+  <p style="margin-top:16px" class="muted">Tiers 2 and 3 are computed for 107 economies. Their near-perfect mutual correlation (+0.998) and near-zero correlation with Tier 1 (+0.06) is itself a finding: capability-mismatch and consumption-openness are <em>different dimensions</em> of sovereignty — which is why the lab publishes them as a family, not a single number.</p>
+
+  <div class="panel viz-root" style="margin-top:26px">
+    <h4>Tier 1 vs Tier 3 — two dimensions, not one</h4>
+    <p class="sub">Country averages where both tiers exist (107 economies). Hover a point for the country.</p>
+    <div class="chart-box" style="height:380px"><canvas id="tierScatter" role="img" aria-label="Scatter plot of Tier 1 CSI versus Tier 3 CSI for 107 economies, showing near-zero correlation."></canvas></div>
+    <p class="src">Source: tier_comparison_country_avg.csv · <a href="assets/downloads/tier_comparison_country_avg.csv" download>download</a></p>
+  </div>
+</div></section>
+
+<section class="block alt"><div class="wrap-narrow">
+  <h2>Verification</h2>
+  <p>Versions 0.1–0.2 defined the gap over all merchandise with capability as density alone. Verification found the index <em>inverted</em>: it correlated −0.39 with economic complexity and ranked petro-states at the top. The cause was structural, and v0.3 fixed it — restricting to final consumption goods and making capability complexity-aware. That failure and its diagnosis are kept in the methodology deliberately: the index's current shape is a result of what verification found.</p>
+  <ol class="clean">
+    <li><strong>It no longer inversely tracks complexity.</strong> CSI × ECI correlation (HS92, 2023): <strong>+0.74</strong>, against −0.39 for the retired all-merchandise variant.</li>
+    <li><strong>Petro-states no longer dominate the top.</strong> Equatorial Guinea, second in the broken variant, now sits near the bottom.</li>
+    <li><strong>Independent classifications agree.</strong> HS92 and SITC rankings correlate at <strong>0.975</strong> in 2023 — the ranking is not an artefact of one product scheme.</li>
+  </ol>
+  <p>The corrected ranking is economically coherent — and the product diagnostics behave as intended: Nigeria's gap is driven by imported sugar, frozen fish, apparel, footwear, motorcycles and, most pointedly, palm oil; imported pharmaceuticals appear only at low weight, because the index correctly treats medicines as genuinely complex.</p>
+</div></section>
+
+<section class="block"><div class="wrap-narrow">
+  <h2>Known limitations — stated plainly</h2>
+  <ol class="clean">
+    <li><strong>Underdevelopment vs the value system.</strong> Tier 1 cannot fully separate a country that imports consumer goods because of a value system from one that has not yet industrialised. The fix in progress is the <em>peer-adjusted CSI</em>: the residual after regressing on income and population, isolating the value-system signal from the development effect.</li>
+    <li><strong>No domestic production data at Tier 1.</strong> The net-import ratio proxies true import penetration; Tier 2 addresses this.</li>
+    <li><strong>No prices at Tier 1.</strong> CCG conflates α with the price effect; Tier 3 addresses this.</li>
+    <li><strong>Capability is inferred</strong> from density and complexity, not observed.</li>
+    <li><strong>Goods only</strong> — services are excluded.</li>
+    <li><strong>The consumption classification is an in-project construction</strong> following BEC logic, published in full for review and replaceable by the official UNSD correspondence.</li>
+  </ol>
+  <div class="callout warn">
+    <p><strong>Honesty note.</strong> The lab's critical review (June 2026) is published alongside the methodology — including the finding that Tier 1 and Tiers 2–3 measure different constructs, and that genuine α-identification needs PPP-decomposed consumption prices. Publishing our own strongest critique is the standard we want the field to hold us to.</p>
+  </div>
+  <p><a class="btn btn-light" href="research.html">Read the full methodology papers →</a></p>
+</div></section>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="top">
+    <div>
+      <h4>Consumer Intelligence Lab</h4>
+      <p class="small" style="color:#b9c9dc">Indexes, open data and reproducible analysis of the consumption side of development — in service of industrial and development policy for the Global South and beyond.</p>
+    </div>
+    <div>
+      <h4>Indexes</h4>
+      <a href="csi.html">Consumption Sovereignty Index</a>
+      <a href="csi.html#ladder">Tier 2–3 (openness)</a>
+      <a href="research.html#preference">CSI-Preference</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="rankings.html">Country rankings</a>
+      <a href="data.html">Data &amp; code</a>
+      <a href="research.html">Publications</a>
+    </div>
+    <div>
+      <h4>Lab</h4>
+      <a href="about.html">About &amp; mission</a>
+      <a href="policy.html">Policy insights</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+  </div>
+  <div class="legal">
+    <span>© 2026 Consumer Intelligence Lab · Babatunde Abiola, University of Johannesburg</span>
+    <span>Data: Atlas of Economic Complexity (Harvard Growth Lab) · BACI (CEPII) · UNIDO · World Bank</span>
+  </div>
+</div></footer>
+
+<script src="assets/js/vendor/chart.umd.min.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+(function () {
+  const pts = CSI_DATA.tierComparison.map(t => ({ x: t.t1, y: t.t3, name: t.name }));
+  cilScatter("tierScatter", pts, {
+    xTitle: "Tier 1 CSI (capability–import mismatch, z)",
+    yTitle: "Tier 3 CSI (price-adjusted openness, z)",
+  });
+})();
+</script>
+</body>
+</html>
